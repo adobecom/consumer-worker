@@ -1,24 +1,29 @@
 # Milo Consumer Cloudflare Worker
 This cloudflare worker can be deployed and it will map all `/libs` requests to milo.
 
-## Use
+## Develop
 
-### Local development
-
-#### Install
+### Install
 
 ```bash
 npm install
 ```
 
-#### Run
+### Run
 
 ```bash
 npm run dev
 ```
 
-### Deploy
+## Deploy
 
+### Install
+
+```bash
+npm install
+```
+
+### Run
 ```bash
 npm run deploy
 ```
