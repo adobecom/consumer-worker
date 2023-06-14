@@ -1,33 +1,24 @@
-## Template: worker-router
+# Milo Consumer Cloudflare Worker
+This cloudflare worker can be deployed and it will map all `/libs` requests to milo.
 
-[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/cloudflare/templates/tree/main/worker-router)
+## Use
 
-This template demonstrates using the [`itty-router`](https://github.com/kwhitley/itty-router) package to add routing to your Cloudflare Workers.
+### Local development
 
-[`index.js`](https://github.com/cloudflare/worker-template-router/blob/master/index.js) is the content of the Workers script.
+#### Install
 
-## Setup
-
-To create a `my-project` directory using this template, run:
-
-```sh
-$ npm init cloudflare my-project worker
-# or
-$ yarn create cloudflare my-project worker
-# or
-$ pnpm create cloudflare my-project worker
+```bash
+npm install
 ```
 
-> **Note:** Each command invokes [`create-cloudflare`](https://www.npmjs.com/package/create-cloudflare) for project creation.
+#### Run
 
-Before publishing your code you need to edit `wrangler.toml` file and add your Cloudflare `account_id` - more information about configuring and publishing your code can be found [in the documentation](https://developers.cloudflare.com/workers/learning/getting-started).
+```bash
+npm run dev
+```
 
-Once you are ready, you can publish your code by running the following command:
+### Deploy
 
-```sh
-$ npm run deploy
-# or
-$ yarn run deploy
-# or
-$ pnpm run deploy
+```bash
+npm run deploy
 ```
