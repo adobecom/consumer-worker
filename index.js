@@ -1,13 +1,29 @@
 const MILO_HOSTNAME = 'main--milo--adobecom.hlx.live';
 const ORIGIN_HOSTNAME = 'main--cmillar--auniverseaway.hlx.live';
+const SUPPORT_HTML = true;
+
+const removeHtml = (path) => {
+	if (path.endsWith('/') || path.endsWith('.plain.html')) return path;
+
+  const split = path.split('/');
+  const page = split.pop();
+  const [ name, ext ] = page.split('.');
+
+  if (ext !== 'html') return path;
+
+  split.push(name);
+  return split.join('/');
+};
 
 export default {
-  async fetch(request, env) {
+  async fetch(request) {
     try {
       const url = new URL(request.url);
       url.hostname = url.pathname.startsWith('/libs')
         ? MILO_HOSTNAME
         : ORIGIN_HOSTNAME;
+			if (SUPPORT_HTML) url.pathname = removeHtml(url.pathname);
+			console.log(url.pathname);
       const req = new Request(url, request);
       const opts = { cf: {} };
       req.headers.set('x-forwarded-host', req.headers.get('host'));
